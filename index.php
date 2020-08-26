@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <center>
 <br>
-<form method="get"><input type="text" placeholder="Url to an image.." name="url"><button type="submit"><i class="far fa-link"></i>></button></form>
+<form method="get"><input type="text" placeholder="Url to an image.." name="url"><button type="submit"><i class="far fa-link" aria-hidden="true"></i>></button></form>
 <?php
 
 $file = $_GET["url"];
@@ -40,7 +40,6 @@ if(isset($_GET["url"])){
     if(!in_array($file, $shell)){
         exec("cd .. && cd i && wget ${file} -O ${new}.png && legofy ${new}.png");
         echo "<img src='/i/${new}_lego.png' /><br>";
-        echo "<a href='javascript:void(0);' onclick='document.execCommand('SaveAs',true,'/i/${new}_lego.png');'>Download Image</a>";
     }else{
         die("Something went wrong.");
     }
